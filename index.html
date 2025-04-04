@@ -464,8 +464,9 @@ button:active {
     gap: 20px; /* Increased gap */
     text-align: left; /* Align text left for better readability */
     margin-top: 15px; /* Increased margin */
-    padding-left: 18%;
-    padding-right: 18%;
+    padding-left: 10%;
+    padding-right: 10%;
+    max-width:95%;
 }
 
 #faq .faq-item {
@@ -474,6 +475,8 @@ button:active {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center;
+
 }
 
 #faq .faq-item h3 {
@@ -762,6 +765,7 @@ button:active {
     font-size: large;
 }
 
+
 /* Media query for medium screens (min-width: 600px and max-width: 991px) - Back to stacked */
 @media (min-width: 600px) and (max-width: 991px) {
     .left-text-right-image {
@@ -851,6 +855,7 @@ button:active {
         margin-left: 15px; /* Add the desired right margin */
         margin-right: 15px;
         padding: auto;
+        max-width: 80%;
     }
     
     div.section#contacto {
@@ -870,7 +875,7 @@ button:active {
     }
 
     .contact-form {
-        width: 95%;             /* Reduce form width */
+        width: 90%;             /* Reduce form width */
         max-width: 400px;        /* Limit form max width */
         margin-left: auto;
         margin-right: auto;
@@ -879,7 +884,7 @@ button:active {
 
     .contact-form input,
     .contact-form textarea {
-        width: 100%;
+        width: 95%;
         max-width: 400px;        /* Limit input max width */
         margin-left: auto;
         margin-right: auto;
