@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholar Athletes</title>
+    <style>
+/* Updated Color Palette for a more professional feel */
+:root {
+    --primary-color: #003366; /* A slightly richer dark blue */
+    --secondary-color: #f4f6f8; /* A very light gray background */
+    --text-color: #333;
+    --accent-color: #5bc0de; /* A slightly more muted light blue */
+    --border-color: #dbe2e8;
+    --font-primary: 'Open Sans', sans-serif; /* Example professional font */
+    --font-heading: 'Montserrat', sans-serif; /* Example heading font */
+    --bg-section-light: #f9fbfc; /* Very light shade of secondary */
+    --bg-section-alt: #eef1f5; /* Another very light shade */
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--secondary-color);
+}
+
+.container {
+
+    margin: auto;
+    text-align: center;
+   
+
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 0px 20px; /* Reduced vertical padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar img {
+    height: 60px; /* Adjusted logo size to fit thinner navbar */
+    cursor: pointer;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 0;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-right: 20px;
+    transition: max-height 0.3s ease-out;
+}
+
+.navbar ul li a {
+    color: white !important;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 15px; /* Adjusted padding for thinner navbar */
+    font-size: 0.9em !important; /* Adjusted font size */
+    transition: color 0.2s ease-in-out;
+}
+
+.navbar ul li a:hover {
+    color: var(--accent-color) !important;
+}
+
+.navbar ul li a:active {
+    transform: scale(0.95);
+}
+
+.menu-toggle {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+}
+
+.menu-toggle:active {
+    transform: scale(0.9);
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+}
+
+.menu-text {
+    color: white;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-top: 5px;
+    margin-right: 10px; /* Add some space between text and burger */
+}
+
+/* Hero Section Styles */
+.hero {
+    background: url('fondo.jpg') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+/* Dark Overlay */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+/* Hero Logo */
+.hero-logo {
+    max-width: 200px; /* Adjust the size as needed */
+    margin-bottom: 500px; /* Adjust spacing as needed */
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    display: block;
+}
+
+.hero-heading {
+    font-family: 'Anton', sans-serif; /* Use Anton */
+    font-size: 3em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    position: relative;
+    z-index: 1;
+    max-width: 90%;
+    margin: 0 auto 20px;
+    margin-top: 130px;
+}
+
+.hero-emphasized {
+    font-family: 'Anton', sans-serif; /* Use Anton */
+    font-size: 6em;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    line-height: 1.2;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+/* Section Styles */
+.section {
+    padding-top: 0 0%;
+    padding-bottom: 30px;
+    text-align: center;
+    background-color: var(--bg-section-light); /* Default light background */
+    margin: 0;
+}
+
+/* Alternate background for better visual separation */
+.section:nth-child(even) {
+    background-color: var(--bg-section-alt);
+}
+
+.section img {
+    width: 100%;
+    max-width: 400px; /* Adjusted image size */
+    display: block;
+    margin: 20px auto; /* Increased margin */
+    border-radius: 8px; /* Optional: Rounded corners for images */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for images */
+}
+
+.section h2 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 2.4em; /* Increased heading size */
+    margin-bottom: 0px; /* Increased margin */
+    margin-top: 0px;
+    padding-top: 25px;
+}
+
+.section p {
+    font-size: 1em;
+    line-height: 1.7;
+}
+
+.section#que-hacemos { /* Target the specific section */
+    padding-top: 50px; /* Adjust top padding as needed */
+    padding-bottom: 50px; /* Adjust bottom padding as needed */
+    text-align: center; /* Center the content within the section */
+    background-color: var(--bg-section-light);
+    margin: 0;
+}
+
+.left-text-right-image {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center items horizontally within the flex container */
+    max-width: 1200px; /* Set a maximum width for the content */
+    margin: 0 auto ; /* Center the flex container on the page */
+    padding: 0 20px; /* Add some side padding if needed */
+}
+
+.left-text-right-image .section-left {
+    flex: 0 0 auto;
+    padding-right: 30px;
+    text-align: center;
+}
+
+.left-text-right-image .section-left img {
+    max-height: 450px;
+    height: auto;
+    width: auto;
+    max-width: 400px;
+    object-fit: contain;
+    margin-right: 0;
+    padding: 0;
+    padding-top: 0%;
+}
+
+.left-text-right-image .section-right {
+    flex: 1 1 auto;
+    text-align: left;
+    padding-left: 0;
+    margin-right: 50px;
+    padding: 20px;
+    margin-top: 0px;
+}
+
+.left-text-right-image .section-right h2 {
+    text-align: left;
+}
+
+.left-text-right-image .section-right p {
+    text-align: left;
+    margin-left: 0;
+    font-size: large;
+    max-width: 750px;
+}
+/* Profile Container Styles */
+.profile-container {
+    display: flex;
+    justify-content: space-around; /* Adjusted spacing */
+    margin-top: 40px; /* Increased margin */
+}
+
+.profile-container div {
+    text-align: center;
+}
+
+.profile-container div img {
+    width: 150px; /* Adjusted image size */
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 15px; /* Adjusted margin */
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+}
+
+.profile-container div h4 {
+    margin-top: 10px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.profile-container div p {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1em;
+    margin-left: 60px;
+    margin-right: 60px;
+    line-height: 1.7;
+}
+
+/* Quienes Somos Section Styles */
+#quienes-somos > p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+/* Form Styles */
+form input,
+form textarea,
+form button {
+    width: 100%;
+    padding: 12px; /* Increased padding */
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px; /* Adjusted border radius */
+    margin-bottom: 15px; /* Added margin */
+    box-sizing: border-box; /* Ensure padding is inside width */
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px; /* Adjusted margin */
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+form .question {
+    margin-bottom: 20px; /* Adjusted margin */
+}
+
+form .question-group {
+    margin-bottom: 35px; /* Adjusted margin */
+}
+
+form textarea {
+    height: 180px; /* Increased height */
+}
+
+form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 14px 20px; /* Adjusted padding */
+    border-radius: 6px;
+    font-size: 1.1em;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+form button:hover {
+    background-color: #003366; /* Darken on hover */
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Evaluacion Section Styles */
+#evaluacion {
+    background-color: var(--bg-section-alt); /* Apply background here as well */
+}
+
+#evaluacion .evaluacion-form {
+    border: 6px solid var(--accent-color);
+    padding: 50px;
+    padding-top: 30px;
+    width: 60%; /* Increased width for form */
+    margin: auto;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+#evaluacion .evaluacion-form form {
+    width: 100%;
+}
+
+#evaluacion .evaluacion-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+#evaluacion p {
+    font-size: 1.1em; /* Increased font size */
+    margin-left: 200px;
+    margin-right: 200px;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+#evaluacion .evaluacion-form .question-group label {
+    margin-bottom: 8px;
+}
+
+#evaluacion .evaluacion-form .question-group {
+    margin-bottom: 35px;
+}
+
+#evaluacion .evaluacion-form textarea {
+    height: 180px;
+}
+
+/* Servicios Section Styles */
+#servicios {
+    background-color: var(--bg-section-light); /* Apply background here */
+}
+
+#servicios .services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Increased gap */
+    margin-top: 20px; /* Increased margin */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 900px; /* Limit width of services grid */
+}
+
+#servicios .services div {
+    padding: 0px; /* Increased padding */
+    border: 1px solid var(--border-color);
+    border-radius: 8px; /* Adjusted border radius */
+    text-align: center;
+    background-color: white; /* White boxes on the background */
+    margin: 0px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#servicios .services img {
+    width: 70px; /* Adjusted image width */
+    margin-bottom: 15px; /* Increased margin */
+}
+
+#servicios .services h3 {
+    margin-top: 10px;
+    font-size: 1.2em; /* Increased font size */
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+#servicios .services p {
+    font-size: 1em;
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: 1.7;
+}
+
+/* FAQ Section Styles */
+#faq {
+    background-color: var(--bg-section-alt); /* Apply background here */
+}
+
+#faq .faq-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Increased gap */
+    text-align: left; /* Align text left for better readability */
+    margin-top: 15px; /* Increased margin */
+    padding-left: 18%;
+    padding-right: 18%;
+}
+
+#faq .faq-item {
+    margin-bottom: 0px; /* Increased margin */
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#faq .faq-item h3 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+#faq .faq-item p {
+    line-height: 1.7;
+}
+
+/* Contacto Section Styles */
+#contacto {
+    background-color: var(--bg-section-light); /* Apply background here */
+    padding-top: 10px;
+    padding-bottom: 0px;
+    text-align: center;
+    width: 100%;
+}
+
+#contacto .contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch; /* Make both sides stretch to the tallest */
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+#contacto .contact-imagewrapper {
+    flex: 0 0 45%; /* Adjust width for the image */
+    max-width: 45%;
+    padding-right: 20px; /* Adjustspacing */
+}
+
+#contacto .contact-image-wrapper img {
+    display: block;
+    width: 100%; /* Make the image fill its container */
+    height: auto;
+    max-height: 100%;
+    object-fit: contain; /* Show all of the image */
+    border-radius: 8px; /* Add rounded borders to the image */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+#contacto .contact-right-column {
+    flex: 0 0 60%; /* Adjust right column width */
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+#contacto .contact-right-column > h2 {
+    text-align: left;
+    margin-bottom: 5px;
+    margin-top: -10px;
+}
+
+#contacto .contact-right-column > p {
+    text-align: left;
+    line-height: 1.6;
+    margin: 10px;
+    width: 100%;
+    margin-right: 15px;
+
+}
+
+#contacto .contact-form-wrapper {
+    width: 100%;
+}
+
+.contact-form {
+    max-width: none;
+    width: 100%;
+    margin-top: 0;
+    padding: 0px;
+    padding-bottom: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 8px;
+    margin-top: 8px;
+    height: 45px;
+}
+
+.contact-form textarea {
+    height: 140px;
+    resize: vertical;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Contact Info Section Styles */
+.contact-info {
+    text-align: center;
+    padding: 60px 0; /* Added padding-bottom */
+    background-color: var(--bg-section-light); /* Or any background you prefer */
+    margin-top: 0px; /* Or whatever value you choose */
+    border-top: none;
+
+}
+#contact-info.section {
+    padding-top: 0; /* Remove top padding */
+    padding-bottom: 0; /* Remove bottom padding */
+    border: none;
+    text-align: center; /* Center the text content */
+    margin-left: auto; /* Center the block itself */
+    margin-right: auto; /* Center the block itself */
+    /* Optionally, set a max-width if you don't want it to stretch full width */
+    /* max-width: 400px; */
+    border-bottom: none;
+}
+.contact-info a {
+    display: inline-block;
+    margin: 0 15px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1em;
+    
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 0px; /* Added margin to separate from contact info */
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.95em;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar ul {
+        display: none; /* Hide the links by default on small screens */
+        flex-direction: column;
+        background-color: var(--primary-color);
+        position: absolute;
+        top: 60px; /* Adjust based on navbar height */
+        left: 0;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    #evaluacion p {
+        margin-left: 10px; /* Reduced left margin for small screens */
+        margin-right: 10px; /* Reduced right margin for small screens */
+        text-align: center;
+        margin-top: -10;
+        margin-bottom: 15px;
+    }
+
+    .navbar ul.active {
+        display: flex; /* Show the links when active */
+    }
+
+    .navbar ul li a {
+        padding: 15px 20px;
+        font-size: 1em !important;
+        display: block; /* Make links take full width */
+    }
+
+    .menu-toggle {
+        display: flex; /* Show the burger menu */
+        align-items: center;
+        padding-right: 20px; /* Add right padding */
+    }
+
+    .hero h1 {
+        font-size: 3em; /* Even further reduction */
+        text-align: center;
+    }
+    .hero h2 {
+        font-size: 2em;
+        text-align: center;
+    }
+    .hero-logo{
+        max-width:  200px;
+        align-items: center;
+    }
+
+    .hero-subtitle {
+        font-size: 0.55em; /* Even further reduction */
+        max-width: 100%;
+        
+    }
+
+    .section {
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: left; /* Align text left for better readability on small screens */
+    
+    }
+
+    .section h2 {
+        font-size: 1.8em;
+        text-align: center; /* Center the heading */
+    }
+
+    .section p {
+        font-size: 1em;
+        line-height: 1.7;
+    }
+    CSS
+/* General styles for the "Qué Hacemos" section (default: stacked layout for smaller screens) */
+.section#que-hacemos {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    background-color: var(--bg-section-light);
+    margin: 0;
+}
+
+.left-text-right-image {
+    display: flex;
+    flex-direction: column; /* Default to stacked */
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.left-text-right-image .section-left {
+    width: 100%;
+    padding-right: 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.left-text-right-image .section-left img {
+    max-height: 450px; /* Increased max-height */
+    height: auto;
+    width: auto;
+    max-width: 90%; /* Adjusted max-width */
+    object-fit: contain;
+    margin-right: 0;
+    padding: 0;
+    padding-top: 0%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.left-text-right-image .section-right {
+    width: 100%;
+    text-align: left;
+    padding-left: 0;
+    margin-right: 0;
+    padding: 20px;
+    margin-top: 0;
+}
+
+.left-text-right-image .section-right h2 {
+    text-align: center;
+}
+
+.left-text-right-image .section-right p {
+    text-align: left;
+    margin-left: 0;
+    font-size: large;
+}
+
+/* Media query for medium screens (min-width: 600px and max-width: 991px) - Back to stacked */
+@media (min-width: 600px) and (max-width: 991px) {
+    .left-text-right-image {
+        flex-direction: column; /* Force stacked layout */
+    }
+
+    .left-text-right-image .section-left {
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .left-text-right-image .section-left img {
+        max-width: 70%; /* Adjust image size in this stacked layout if needed */
+        max-height: none; /* Allow flexible height */
+    }
+
+    .left-text-right-image .section-right {
+        width: 100%;
+        text-align: left;
+        padding-left: 0;
+        margin-right: 0;
+        padding: 20px;
+        margin-top: 0;
+    }
+
+    .left-text-right-image .section-right h2 {
+        text-align: center;
+    }
+}
+
+/* Media query for larger screens (min-width: 992px - typical desktop) */
+@media (min-width: 992px) {
+    .left-text-right-image {
+        flex-direction: row; /* Side-by-side for larger screens */
+        align-items: center;
+        justify-content: center;
+        max-width: 1200px;
+        margin: 30px auto 0 50px;
+    }
+
+    .left-text-right-image .section-left {
+        width: 40%;
+        padding-right: 30px;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    .left-text-right-image .section-left img {
+        max-height: 450px; /* Keep the increased max-height */
+        max-width: 100%; /* Adjust max-width for the container */
+    }
+
+    .left-text-right-image .section-right {
+        width: 60%;
+        text-align: left;
+        padding-left: 0;
+        margin-right: 50px;
+        padding: 20px;
+        margin-top: 0;
+    }
+
+    .left-text-right-image .section-right h2 {
+        text-align: left;
+    }
+
+}
+
+
+    #contacto .contact-container {
+        flex-direction: column; /* Stack image and form */
+        align-items: center;      /* Center horizontally */
+        
+    }
+
+    #contacto .contact-image-wrapper,
+    #contacto .contact-right-column {
+        width: 100%;             /* Full width on small screens */
+        max-width: 100%;
+        padding-right: 0;       /* Remove padding */
+        padding-left: 0;
+        padding: 0;
+    
+    }
+    #contacto .contact-right-column > p {
+        margin-left: 15px; /* Add the desired right margin */
+        margin-right: 15px;
+        padding: auto;
+    }
+    
+    div.section#contacto {
+    padding-top: 0;
+    padding-bottom: 0;
+    border: none;
+}
+    #contacto .contact-image-wrapper img {
+        max-width: 80%;         /* Limit image width */
+        max-height: min-content;
+        margin-bottom: 20px;    /* Space below image */
+    }
+
+    #contacto .contact-right-column {
+        margin-top: 20px;       /* Space above form */
+        align-items: center;    /* Center form content */
+    }
+
+    .contact-form {
+        width: 95%;             /* Reduce form width */
+        max-width: 400px;        /* Limit form max width */
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        max-width: 400px;        /* Limit input max width */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact-form button {
+        max-width: 400px;        /* Limit button max width */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact-form label {
+        text-align: left;
+        
+    
+    }
+    #contact-info.section {
+        padding-top: 0;
+        padding-bottom: 0;
+        width: 90%; /* Or a specific width */
+        max-width: 600px; /* Optional max width */
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    #evaluacion .evaluacion-form {
+        width: 90%; /* Reduce the width of the form container */
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    #evaluacion .evaluacion-form form input,
+    #evaluacion .evaluacion-form form textarea,
+    #evaluacion .evaluacion-form form button {
+        width: 100%; /* Keep form elements at 100% of the form container */
+        max-width: 700px; /* Limit the maximum width of form elements */
+     
+        margin-right: 10px;
+        text-align: left;
+    }
+
+    #evaluacion .evaluacion-form label {
+        text-align: center; /* Align labels to the left */
+    }
+}
+    /* Media Queries for "quienes somos" Section on Smaller Screens */
+@media (max-width: 768px) {
+    #quienes-somos {
+        padding: 20px;
+    }
+
+    #quienes-somos h2 {
+        font-size: 2em;
+    }
+    #quienes-somos h3{
+        text-align: center;
+        font-size: 1.4em;
+        color: var(--primary-color);
+  
+    }
+    #quienes-somos h4 {
+        font-size: 1.2em;
+    }
+    #quienes-somos p {
+        font-size: 1.1em;
+        line-height: 1.6;
+    }
+
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-container div {
+        margin-bottom: 20px;
+    }
+
+    .profile-container div img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-container div p {
+        padding: 20px; /* Add padding around the paragraph */
+        max-width: 500px; /* Control paragraph width */
+        text-align: center; /* Center the text */
+        margin: 0 auto; /* Center the paragraph */
+    }
+}
+
+/* Further Adjustments for Phones */
+@media (max-width: 480px) {
+    #quienes-somos h2 {
+        font-size: 1.8em;
+    }
+
+    #quienes-somos p {
+        font-size: 0.9em;
+    }
+    /* Further Adjustments for Phones */
+@media (max-width: 480px) {
+    .hero-heading {
+        font-size: 2.5em; /* Further reduce heading size */
+        text-align: center;
+    }
+
+    .hero-emphasized {
+        font-size: 4em; /* Further reduce emphasized text size */
+        text-align: center;
+    }
+
+    .hero-logo {
+        margin-bottom: 20px; /* Adjust logo margin */
+        align-items:center ;
+    }
+
+    .left-text-right-image .section-right p {
+        text-align: center; /* Center text in "Qué Hacemos" */
+    }
+
+    #servicios .services div {
+        padding: 15px; /* Add padding to service boxes */
+        margin: 10px; /* Add margin to service boxes */
+    }
+
+    #evaluacion .evaluacion-form input,
+    #evaluacion .evaluacion-form textarea {
+        padding: 10px; /* Reduce padding on form elements */
+    }
+
+    #contact-info {
+        padding: 40px 0; /* Add padding to contact info section */
+    }
+}
+}
+
+    </style>
+    </head>
+    
+      
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+        </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <a href="#inicio"><img src="logo.png" alt="Scholar Athletes"></a>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <span class="menu-text">Menu</span>
+            </div>
+            <ul>
+                <li><a href="#inicio">Home</a></li>
+                <li><a href="#que-hacemos">¿Qué hacemos?</a></li>
+                <li><a href="#quienes-somos">¿Quiénes somos?</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#evaluacion">Evaluación</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    
+        <div class="hero" id="inicio">
+            
+            <h2 class="hero-heading">Tu futuro de competir y estudiar en Estados Unidos</h2>
+            <h1 class="hero-emphasized">EMPIEZA ACÁ!</h1>
+            <img src="logo.png" alt="Your Logo" class="hero-logo">
+        </div>
+    
+        <div class="container">
+            <div class="section" id="que-hacemos">
+                <h2>¿Qué hacemos?</h2>
+                <div class="left-text-right-image">
+                    <div class="section-left">
+                        <img src="deportista.jpg" alt="Deportista">
+                    </div>
+                    <div class="section-right">
+                        <p>En Scholar Athlete, nos dedicamos a ayudarte a dar el siguiente paso en tu carrera deportiva y académica. Entendemos la pasión por el deporte y la importancia de una educación de calidad; por eso, te ayudamos a combinar las dos y cumplir tus objetivos.
+                        </p>
+                        <p>Desde el momento que empezamos a trabajar juntos, te acompañamos durante todo el proceso: evaluamos tu perfil deportivo, te conectamos con entrenadores universitarios, te ayudamos con el proceso de gestión de tu beca, y te guiamos con los trámites hasta que llegues a una universidad.
+                        </p>
+                        <p>Nuestro equipo está listo para darte todo el apoyo y los consejos que necesitás para alcanzar tus metas en las universidades de EE.UU.
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="divider"></div>
+    
+            <div class="section" id="quienes-somos">
+                <h2>¿Quiénes somos?</h2>
+                <p>En Scholar Athlete, somos un equipo de profesionales apasionados por el deporte y la educación. Estamos liderados por Gastón y Bárbara, quienes vivieron en Estados Unidos durante 9 y 10 años, respectivamente. Ambos fueron estudiantes y deportistas en universidades de EE.UU., lo que les permitió conocer en primera persona los desafíos y las oportunidades de esta experiencia. Gracias a sus vivencias, saben exactamente qué se necesita para tener éxito en este entorno.
+                </p>
+                <p>Nuestra misión es ofrecer oportunidades únicas a los deportistas y compartir las increíbles experiencias que ellos mismos vivieron en EE.UU. Ambos recibieron apoyo de profesionales y agencias para llegar a las universidades, y ahora quieren ayudar a otros a vivir esa mismas vivencias.
+                </p>
+                <p>Con años de experiencia y una gran red de contactos en el ámbito universitario en EEUU, en Scholar Athlete trabajamos para que cada atleta tenga la oportunidad de brillar/destacarse tanto en el deporte como en sus estudios.</p>
+                <p>
+    
+                </p>
+                <h3>Conoce a nuestro equipo</h3>
+                <div class="profile-container">
+                    <div>
+                        <img src="gaston.jpg" alt="Gastón">
+                        <h4>Gastón Walitzky</h4>
+                        <p>Gastón is a former university tennis player with an MBA and a Master's in Sports Management. His personal journey through the U.S. collegiate system provides invaluable insights to aspiring athletes.</p>
+                    </div>
+                    <div>
+                        <img src="barbara.jpg" alt="Barbara">
+                        <h4>Barbara Araoz</h4>
+                        <p>Barbara is a former university basketball player and holds a degree in Sports Psychology. Her expertise ensures athletes are mentally prepared for the challenges ahead.</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="divider"></div>
+    
+            <div class="section" id="servicios">
+                <h2>Nuestros Servicios</h2>
+                <div class="services">
+                    <div>
+                        <img src="check.png" alt="Evaluación de Perfil">
+                        <h3>Evaluación de Perfil</h3>
+                        <p>Analizamos exhaustivamente tu potencial académico y deportivo para determinar tu elegibilidad y las mejores oportunidades universitarias para ti. Te proporcionamos una evaluación honesta y detallada.</p>
+                    </div>
+                    <div>
+                        <img src="email-coach.png" alt="Contacto con entrenadores">
+                        <h3>Contacto con Entrenadores</h3>
+                        <p>Facilitamos la comunicación directa con entrenadores universitarios en Estados Unidos, presentando tu perfil de manera profesional y destacando tus habilidades y logros para captar su interés.</p>
+                    </div>
+                    <div>
+                        <img src="target.png" alt="Creación de perfil">
+                        <h3>Creación de Perfil Profesional</h3>
+                        <p>Desarrollamos un perfil integral que resalta tus logros deportivos, académicos y personales. Este perfil se utiliza para impresionar a los reclutadores y aumentar tus posibilidades de obtener una beca.</p>
+                    </div>
+                    <div>
+                        <img src="beca.png" alt="Gestión de Becas">
+                        <h3>Gestión de Becas</h3>
+                        <p>Te guiamos a través del complejo proceso de solicitud de becas, asegurándonos de que cumplas con todos los requisitos y plazos. Nuestro objetivo es que accedas a las mejores ofertas disponibles.</p>
+                    </div>
+                    <div>
+                        <img src="graduate.png" alt="Asesoramiento General">
+                        <h3>Asesoramiento Integral</h3>
+                        <p>Ofrecemos orientación continua en todos los aspectos de tu carrera universitaria, desde la elección de la universidad y la carrera hasta la adaptación a la vida estudiantil y deportiva en Estados Unidos.</p>
+                    </div>
+                    <div>
+                        <img src="manos.png" alt="Asesoramiento General">
+                        <h3>Acompañamiento durante todo el proceso</h3>
+                        <p>Ofrecemos orientación continua en todos los aspectos de tu carrera universitaria, desde la elección de la universidad y la carrera hasta la adaptación a la vida estudiantil y deportiva en Estados Unidos.</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="divider"></div>
+    
+            <div class="section" id="evaluacion">
+                <h2>Evaluación de perfil</h2>
+                <p>¡Contanos un poco más sobre vos! Completa el formulario para una evaluación gratuita; esta información nos sirve para conocer tu perfil deportivo y académico, ofrecer una orientación personalizada, y evaluar cómo podemos ayudarte a conseguir una beca en una universidad de EE.UU. Una vez que lo completes, un miembro de nuestro equipo se pondrá en contacto para guiarte en el siguiente paso.
+                </p>
+    
+                <div class="evaluacion-form">
+                    <form id="evaluacion-form" action="send_evaluation_email.php" method="post">
+                    <form id="evaluacion-form">
+                        <div class="question-group">
+                            <div class="question">
+                                <label for="question1">Nombre</label>
+                                <input type="text" id="question1" name="question1">
+                            </div>
+                        </div>
+    
+                        <div class="question-group">
+                            <div class="question">
+                                <label for="question2">Email</label>
+                                <input type="text" id="question2" name="question2">
+                            </div>
+                        </div>
+    
+                        <div class="question-group">
+                            <div class="question">
+                                <label for="question3">Número de Teléfono</label>
+                                <input type="text" id="question3" name="question3">
+                            </div>
+                        </div>
+    
+                        <div class="question-group">
+                            <div class="question">
+                                <label for="question4">Edad</label>
+                                <input type="text" id="question4" name="question4">
+                            </div>
+                        </div>
+    
+                        <div class="question-group">
+                            <div class="question">
+                                <label for="question5">¿En qué año terminas o terminaste el colegio?</label>
+                                <input type="text" id="question5" name="question5">
+                            </div>
+                        </div>
+    
+                        <div class="question-group">
+                            <div class="question">
+                                <label for="question6">¿Qué deporte practicas?</label>
+                                <input type="text" id="question6" name="question6">
+                            </div>
+                        </div>
+    
+                        <div class="question-group">
+                            <div class="question">
+                                <label for="question7">¿Cuáles fueron tus mayores logros deportivos?</label>
+                                <textarea id="question7" name="question7"></textarea>
+                            </div>
+                        </div>
+    
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+    
+            <div class="divider"></div>
+    
+            <div class="section" id="faq">
+                <h2>Preguntas Frecuentes</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <h3>¿Quiénes pueden aplicar a una beca?</h3>
+                        <p>Cualquier atleta con nivel competitivo que cumpla con los requisitos académicos y deportivos de las universidades estadounidenses.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>¿Cuánto cuesta el proceso?</h3>
+                        <p>El costo de nuestros servicios varía dependiendo del nivel de acompañamiento y los servicios específicos que requieras. Contáctanos para una consulta personalizada.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>¿Quiénes pueden aplicar a una beca?</h3>
+                        <p>Cualquier atleta con nivel competitivo que cumpla con los requisitos académicos y deportivos de las universidades estadounidenses.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>¿Cuánto cuesta el proceso?</h3>
+                        <p>El costo de nuestros servicios varía dependiendo del nivel de acompañamiento y los servicios específicos que requieras. Contáctanos para una consulta personalizada.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>¿Quiénes pueden aplicar a una beca?</h3>
+                        <p>Cualquier atleta con nivel competitivo que cumpla con los requisitos académicos y deportivos de las universidades estadounidenses.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>¿Cuánto cuesta el proceso?</h3>
+                        <p>El costo de nuestros servicios varía dependiendo del nivel de acompañamiento y los servicios específicos que requieras. Contáctanos para una consulta personalizada.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="section" id="contacto">
+            <div class="contact-container">
+                <div class="contact-image-wrapper">
+                    <img src="logo-poster.jpg" alt="Logo Poster del Contacto">
+                </div>
+                <div class="contact-right-column">
+                    <h2>Contacto</h2>
+                    <p>Si tenés alguna duda o querés saber más, no dudes en escribirnos a través del formulario o por correo electrónico. ¡Estamos para ayudarte en lo que necesites!</p>
+                    <div class="contact-form-wrapper">
+                        <form class="contact-form" action="send_contact_email.php" method="post">
+                            <input type="text" placeholder="Nombre" name="name" required><br>
+                            <input type="email" placeholder="Correo electrónico" name="email" required><br>
+                            <textarea placeholder="Mensaje" name="message" required></textarea><br>
+                            <button type="submit">Enviar</button>
+                        </form>
+                    
+                </div>
+            </div>
+            <div class="section" id="contact-info">  <p>Email: info@scholarathletes.com</p>
+                <p>Instagram: <a href="https://instagram.com/scholarathletes-usa" target="_blank">scholarathletes-usa</a></p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2025 Scholar Athletes. Todos los derechos reservados.</p>
+        </div>
+
+    
+        <script>
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navbarUl = document.querySelector('.navbar ul');
+            const navLinks = document.querySelectorAll('.navbar ul li a'); // Select all the navigation links
+    
+            menuToggle.addEventListener('click', () => {
+                navbarUl.classList.toggle('active');
+            });
+    
+            // Add event listeners to each navigation link
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    // If the menu is open (has the 'active' class), close it
+                    if (navbarUl.classList.contains('active')) {
+                        navbarUl.classList.remove('active');
+                    }
+                });
+            });
+        </script>
+    </body>
+    </html>
